@@ -1,3 +1,33 @@
 /* 
     General Styles
 */
+.image{
+    border-radius: 100px;
+    width: 160px;
+    height: 160px;
+    margin: 10px;
+}
+form{
+    border: 2px outset white;
+    width: 1000px;
+    height: 600px;
+    background-color: white;
+    margin-top: 25px;
+    padding: 20px;
+ 
+}
+
+body{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bottom{
+    margin-bottom:20px;
+}
