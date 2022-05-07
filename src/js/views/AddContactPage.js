@@ -24,7 +24,7 @@ const AddContactPage = () => {
           aria-label="Example text with button addon"
           aria-describedby="button-addon1"
           onChange={(event)=>{
-            setContact(...contact.full_name)
+            setContact({...contact,full_name:event.target.value})
           }}
         ></input>
       </section>
@@ -36,6 +36,9 @@ const AddContactPage = () => {
           placeholder=""
           aria-label="Example text with button addon"
           aria-describedby="button-addon1"
+          onChange={(event)=>{
+            setContact({...contact,email:event.target.value})
+          }}
         ></input>
       </section>
       <section>
@@ -46,6 +49,9 @@ const AddContactPage = () => {
           placeholder=""
           aria-label="Example text with button addon"
           aria-describedby="button-addon1"
+          onChange={(event)=>{
+            setContact({...contact,phone:event.target.value})
+          }}
         ></input>
       </section>
       <section className="bottom">
@@ -56,6 +62,9 @@ const AddContactPage = () => {
           placeholder=""
           aria-label="Example text with button addon"
           aria-describedby="button-addon1"
+          onChange={(event)=>{
+            setContact({...contact,address:event.target.value})
+          }}
         ></input>
       </section>
 

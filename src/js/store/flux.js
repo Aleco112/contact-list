@@ -5,30 +5,54 @@ const getState = ({ getStore, getActions, setStore }) => {
     },
     actions: {
       getContactList: () => {
-        var requestOptions = {
-          method: "GET",
-          redirect: "follow",
-        };
-
         fetch(
-          "https://assets.breatheco.de/apis/fake/contact/agenda/aleco_agenda",
-          requestOptions
+          "https://assets.breatheco.de/apis/fake/contact/agenda/aleco_agenda"
         )
           .then((response) => response.json())
           .then((result) => setStore({ contactList: result }))
           .catch((error) => console.log("error", error));
       },
-      addContact: (contact) => {      
+
+      addContact: (contact) => {
         fetch("https://assets.breatheco.de/apis/fake/contact/", {
-			method: "POST",
-			headers: { 
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(contact),
-			redirect: "follow",
-		  })
-          .then((response) => response.status===200? getActions().getContactList():"")
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(contact),
+          redirect: "follow",
+        })
+          .then((response) =>
+            response.status === 200 ? getActions().getContactList() : ""
+          )
           .catch((error) => console.log("error", error));
+      },
+
+      deleteContact: () => {
+        fetch(`https://assets.breathco.de/apis/fake/contact/${contact_id}`, {
+          method: DELETE,
+        })
+          .then((response) => {
+            response.status === 200 ? getActions.getContactList() : "";
+          })
+
+          .catch((error) => console.log("error", error));
+      },
+
+      editContact: (contact) => {
+        fetch(`https://assets.breathcode.de/apis/fake/contact/${contact_id}`, {
+          method: PUT,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(contact),
+          redirect: "follow",
+        })
+        .then((response) => {
+          response.status === 200 ? getActions.getContactList() : "";
+        })
+
+        .catch((error) => console.log("error", error));
       },
     },
   };
