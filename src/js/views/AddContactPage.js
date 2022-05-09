@@ -9,7 +9,7 @@ const AddContactPage = () => {
     phone: "",
     email: "",
   });
-  console.log(store.contaclist);
+  console.log(store.contactList);
 
   return (
     <form>
@@ -26,6 +26,7 @@ const AddContactPage = () => {
           onChange={(event)=>{
             setContact({...contact,full_name:event.target.value})
           }}
+          
         ></input>
       </section>
       <section>
@@ -39,6 +40,8 @@ const AddContactPage = () => {
           onChange={(event)=>{
             setContact({...contact,email:event.target.value})
           }}
+    
+          
         ></input>
       </section>
       <section>
@@ -52,6 +55,7 @@ const AddContactPage = () => {
           onChange={(event)=>{
             setContact({...contact,phone:event.target.value})
           }}
+        
         ></input>
       </section>
       <section className="bottom">
@@ -65,10 +69,19 @@ const AddContactPage = () => {
           onChange={(event)=>{
             setContact({...contact,address:event.target.value})
           }}
+         
         ></input>
       </section>
 
-      <button className="btn btn-primary m-2 col-12 m-auto" type="button">
+      <button 
+      onClick={()=>{
+        if(contact!=="") {
+          actions.addContact([...store.contactList,{label:contact,done:false}]);
+          setContact("")
+        }
+
+      }}
+      className="btn btn-primary m-2 col-12 m-auto" type="button">
         save
       </button>
     </form>

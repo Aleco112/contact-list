@@ -15,16 +15,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       addContact: (contact) => {
         fetch("https://assets.breatheco.de/apis/fake/contact/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(contact),
-          redirect: "follow",
+          method :'POST',
+					redirect:'follow',
+					headers: {
+						"content-type": "application/json"
+					},
+					body:JSON.stringify(contact)
+
         })
-          .then((response) =>
-            response.status === 200 ? getActions().getContactList() : ""
-          )
+        .then(response=>response.status ===200 ? getActions().getContactList():"")
           .catch((error) => console.log("error", error));
       },
 
