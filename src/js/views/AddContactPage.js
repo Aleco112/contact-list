@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext.js";
+import ContactCard from "../component/ContactCard";
 const AddContactPage = () => {
   const { store, actions } = useContext(Context);
   const [contact, setContact] = useState({
@@ -8,6 +9,7 @@ const AddContactPage = () => {
     address: "",
     phone: "",
     email: "",
+    agenda_slug:"aleco_agenda",
   });
   console.log(store.contactList);
 
@@ -76,8 +78,8 @@ const AddContactPage = () => {
       <button 
       onClick={()=>{
         if(contact!=="") {
-          actions.addContact([...store.contactList,{label:contact,done:false}]);
-          setContact("")
+          actions.addContact(contact)
+          
         }
 
       }}

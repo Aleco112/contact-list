@@ -1,6 +1,7 @@
 import React from 'react'
 
 const ContactCard=(props) => {
+  console.log(props)
   return (
       <>
     <div className="card mb-3" style={{maxWidth:" 540px"}}>
@@ -17,16 +18,26 @@ const ContactCard=(props) => {
         </div>
     </div>
         <div className='col-md-3'> 
-            <div> 
-            <i className="fa-regular fa-pencil fa-rg"></i>
-            <i className="fa-regular fa-trash"></i>
+        <button 
+        type="button" 
+        className="btn btn-outline-primary"
+        onClick={()=>
+          actions.deleteContact()
+        }
+
+          
+        
+
+        >Edit</button>
+        <button type="button" className="btn btn-danger btn btn-outline-primary">delete</button>
             
             
-            </div>
+           
         </div>
 
   </div>
 </div>
+
     </>
   )
 }
