@@ -27,28 +27,30 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((error) => console.log("error", error));
       },
 
-      deleteContact: () => {
-        fetch(`https://assets.breathco.de/apis/fake/contact/${contact_id}`, {
-          method: DELETE,
+      deleteContact: (contact_id) => {
+        console.log("ok")
+        fetch(`https://assets.breatheco.de/apis/fake/contact/${contact_id}`, {
+          method:"DELETE",
+          redirect: "follow",
         })
           .then((response) => {
-            response.status === 200 ? getActions.getContactList() : "";
+            response.status === 200 ? getActions().getContactList() : "";
           })
 
           .catch((error) => console.log("error", error));
       },
 
-      editContact: (contact) => {
-        fetch(`https://assets.breathcode.de/apis/fake/contact/${contact_id}`, {
-          method: PUT,
+      editContact: (contact_id) => {
+        fetch(`https://assets.breatheco.de/apis/fake/contact/${contact_id}`, {
+          method:"PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(contact),
+          body: JSON.stringify(contact_id),
           redirect: "follow",
         })
         .then((response) => {
-          response.status === 200 ? getActions.getContactList() : "";
+          response.status === 200 ? getActions().getContactList() : "";
         })
 
         .catch((error) => console.log("error", error));

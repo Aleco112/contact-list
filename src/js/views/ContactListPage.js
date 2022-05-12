@@ -17,6 +17,7 @@ export const ContactListPage = () => {
           address={contact.address}
           telephone={contact.phone}
           email= {contact.email}
+          id={contact.id}
           key={i}
           />
           

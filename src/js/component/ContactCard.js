@@ -1,7 +1,8 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import {Context} from "../store/appContext"
 
 const ContactCard=(props) => {
-  console.log(props)
+  const {store ,actions }=useContext(Context)
   return (
       <>
     <div className="card mb-3" style={{maxWidth:" 540px"}}>
@@ -15,21 +16,35 @@ const ContactCard=(props) => {
         <div><i className="fa-regular fa-location-dot"></i>{props.address}</div> 
         <div><i className="fa-regular fa-circle-phone-flip"></i> {props.telephone}</div> 
         <div><i className="fa-regular fa-envelope"></i> {props.email}</div> 
+        
+        
+        
         </div>
     </div>
         <div className='col-md-3'> 
         <button 
         type="button" 
         className="btn btn-outline-primary"
-        onClick={()=>
-          actions.deleteContact()
+        onClick={()=>{
+          <>
+          <Link to="/add"></Link>
+    
+          </>
+        actions.editContact(props.id)
+        }
+          
+        
         }
 
           
         
 
-        >Edit</button>
-        <button type="button" className="btn btn-danger btn btn-outline-primary">delete</button>
+        >edit</button>
+        <button 
+        onClick={()=>
+          actions.deleteContact(props.id)
+        }
+        type="button" className="btn btn-danger btn btn-outline-primary">delete</button>
             
             
            
