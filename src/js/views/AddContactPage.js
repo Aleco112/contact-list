@@ -79,8 +79,9 @@ const AddContactPage = () => {
       onClick={()=>{
         if(contact!=="") {
           actions.addContact(contact)
-          
-        }
+           }
+           <Link to="/"></Link>
+         
 
       }}
       className="btn btn-primary m-2 col-12 m-auto" type="button">

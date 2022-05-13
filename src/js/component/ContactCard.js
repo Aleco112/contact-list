@@ -1,6 +1,6 @@
 import React,{useContext} from 'react'
 import {Context} from "../store/appContext"
-
+import {Link} from "react-router-dom"
 const ContactCard=(props) => {
   const {store ,actions }=useContext(Context)
   return (
@@ -26,10 +26,7 @@ const ContactCard=(props) => {
         type="button" 
         className="btn btn-outline-primary"
         onClick={()=>{
-          <>
-          <Link to="/add"></Link>
-    
-          </>
+          
         actions.editContact(props.id)
         }
           
