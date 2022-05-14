@@ -91,6 +91,9 @@ const AddContactPage = () => {
       className="btn btn-primary m-2 col-12 m-auto" type="button">
         save
       </button>
+      <Link to="/" href="#" className="mx-2 link-primary">
+          or get back to contacts{" "}
+        </Link>
     </form>
   );
 };
