@@ -1,7 +1,8 @@
-import React,{useContext} from 'react'
+import React,{useContext,} from 'react'
 import {Context} from "../store/appContext"
-import {Link} from "react-router-dom"
+import {Link,useHistory,} from "react-router-dom"
 const ContactCard=(props) => {
+      let history=useHistory();
   const {store ,actions }=useContext(Context)
   return (
       <>
@@ -26,8 +27,9 @@ const ContactCard=(props) => {
         type="button" 
         className="btn btn-outline-primary"
         onClick={()=>{
+          history.push(`/add/${props.id}`)
           
-        actions.editContact(props.id)
+        
         }
           
         
