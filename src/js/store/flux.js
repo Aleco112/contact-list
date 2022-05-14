@@ -40,13 +40,13 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((error) => console.log("error", error));
       },
 
-      editContact: (contact_id) => {
-        fetch(`https://assets.breatheco.de/apis/fake/contact/${contact_id}`, {
+      editContact: (contact) => {
+        fetch(`https://assets.breatheco.de/apis/fake/contact/${contact.id}`, {
           method:"PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(contact_id),
+          body: JSON.stringify(contact),
           redirect: "follow",
         })
         .then((response) => {
