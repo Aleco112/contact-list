@@ -14,9 +14,9 @@ const ContactCard=(props) => {
     <div className="col-md-5">
       <div className="card-body">
         <h5 className="card-title">{props.FullName}</h5>
-        <div><i className="fa-regular fa-location-dot"></i>{props.address}</div> 
-        <div><i className="fa-regular fa-circle-phone-flip"></i> {props.telephone}</div> 
-        <div><i className="fa-regular fa-envelope"></i> {props.email}</div> 
+        <div>{props.address}</div> 
+        <div> {props.telephone}</div> 
+        <div>{props.email}</div> 
         
         
         

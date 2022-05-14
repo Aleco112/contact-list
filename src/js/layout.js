@@ -27,7 +27,7 @@ const Layout = () => {
 						<Route exact path="/add">
 							<AddContactPage />
 						</Route>
-						<Route exact path="/add/:theid">
+						<Route exact path="/add/:id">
 							<EditContact />
 						</Route>
 						<Route>
@@ -42,3 +42,12 @@ const Layout = () => {
 };
 
 export default injectContext(Layout);
+
+
+
+
+
+
+
+
+

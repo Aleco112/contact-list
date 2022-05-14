@@ -2,7 +2,9 @@ import React, { useContext, useState } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext.js";
 import ContactCard from "../component/ContactCard";
+import {Link,useHistory,} from "react-router-dom"
 const AddContactPage = () => {
+  let history=useHistory();
   const { store, actions } = useContext(Context);
   const [contact, setContact] = useState({
     full_name: "",
@@ -79,8 +81,10 @@ const AddContactPage = () => {
       onClick={()=>{
         if(contact!=="") {
           actions.addContact(contact)
+          history.push(`/`);
+
            }
-           <Link to="/"></Link>
+           
          
 
       }}
